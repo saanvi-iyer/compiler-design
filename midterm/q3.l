@@ -1,4 +1,4 @@
-// Lex Program to check whether a number is Prime or Not 
+/* Lex Program to check whether a number is Prime or Not */
   
 %{ 
    /* Definition section */
@@ -32,10 +32,13 @@
          } 
        } 
 %% 
-  
-// driver code 
+int yywrap()
+{
+  return 1;
+}
 int main() 
  { 
+  printf("Enter a prime number: ");
   yylex(); 
   return 0; 
  } 

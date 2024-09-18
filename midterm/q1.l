@@ -1,18 +1,18 @@
-// Lex program to remove uppercase letters and whitespace from the input
+/* Lex program to remove uppercase letters and whitespace from the input */
 
 %{
-#include <stdio.h>
 %}
-
 %%
-
-[A-Z]      ;               // Ignore uppercase letters
-[ \t\n]    ;               // Ignore whitespace characters (space, tab, newline)
-.          { printf("%c", yytext[0]); }  // Print all other characters
-
+[A-Z]+ ;
+[ \t\n]+ ; //removes space, tabspace, newline space, comma and double quote
 %%
-
-int main() {
-    yylex();
-    return 0;
+int yywrap()
+{
+return 1;
+}
+int main()
+{
+yyin=fopen("input.txt","r");
+yylex();
+fclose(yyin);
 }
